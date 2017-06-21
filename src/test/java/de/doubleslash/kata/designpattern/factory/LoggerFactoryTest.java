@@ -2,6 +2,7 @@ package de.doubleslash.kata.designpattern.factory;
 
 import org.apache.commons.io.output.TeeOutputStream;
 import org.hamcrest.CoreMatchers;
+import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
 
@@ -23,13 +24,20 @@ public class LoggerFactoryTest {
 
     private ByteArrayOutputStream baos;
 
+    private PrintStream originalSystemOut;
+
     @Before
     public void setUp() throws Exception {
         // Ausgaben nach System.out in einen ByteArrayOutputStream kopieren, damit die Ausgaben später ausgewertet
         // werden können
         baos = new ByteArrayOutputStream();
-        PrintStream originalSystemOut = System.out;
+        originalSystemOut = System.out;
         System.setOut(new PrintStream(new TeeOutputStream(originalSystemOut, baos)));
+    }
+
+    @After
+    public void tearDown() throws Exception {
+        System.setOut(originalSystemOut);
     }
 
     /**
