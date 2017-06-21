@@ -1,5 +1,7 @@
 package de.doubleslash.kata.designpattern.factory;
 
+import static java.lang.String.format;
+
 public class LoggerFactory {
 
     private final LoggerConfiguration loggerConfig;
@@ -8,10 +10,15 @@ public class LoggerFactory {
         this.loggerConfig = loggerConfig;
     }
 
+    /**
+     * Gibt je nach Konfiguration eine entsprechende Logger-Instanz zurück.
+     *
+     * @return eine Logger-Instanz gemäß Konfiguration.
+     */
     public Logger getLogger() {
         String loggerTypeToCreate = loggerConfig.getConfiguredLoggerType();
 
-        // TODO: return appropriate logger instance according to the configured logger type
+        // TODO: eine dem konfigurierten Logger-Typ entsprechende Logger-Implementierung zurückliefern
         return null;
     }
 

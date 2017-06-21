@@ -7,10 +7,12 @@
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
         <outputRelativeToContentRoot value="true" />
         <module name="design-pattern-katas" />
+        <module name="DesignPatternKatas" />
       </profile>
     </annotationProcessing>
     <bytecodeTargetLevel>
       <module name="design-pattern-katas" target="1.8" />
+      <module name="DesignPatternKatas" target="1.8" />
     </bytecodeTargetLevel>
   </component>
 </project>
