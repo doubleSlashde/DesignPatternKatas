@@ -1,7 +1,6 @@
 package de.doubleslash.kata.designpattern.factory;
 
 import org.apache.commons.io.output.TeeOutputStream;
-import org.hamcrest.CoreMatchers;
 import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
@@ -10,11 +9,7 @@ import java.io.ByteArrayOutputStream;
 import java.io.PrintStream;
 import java.nio.charset.StandardCharsets;
 
-import static org.hamcrest.CoreMatchers.is;
-import static org.hamcrest.CoreMatchers.notNullValue;
-import static org.hamcrest.CoreMatchers.equalTo;
-import static org.junit.Assert.assertEquals;
-import static org.junit.Assert.assertNotNull;
+import static org.hamcrest.CoreMatchers.*;
 import static org.junit.Assert.assertThat;
 
 public class LoggerFactoryTest {
@@ -196,9 +191,7 @@ public class LoggerFactoryTest {
 
         // Testen
         Logger logger = factory.getLogger();
-        if (logger != null) {
-            logger.log(LOG_MESSAGE);
-        }
+        logger.log(LOG_MESSAGE);
 
         // Auswerten
         assertThatNothingWasLogged();

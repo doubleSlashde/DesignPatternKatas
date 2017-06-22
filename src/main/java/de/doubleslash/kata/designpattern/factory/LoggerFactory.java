@@ -1,7 +1,5 @@
 package de.doubleslash.kata.designpattern.factory;
 
-import static java.lang.String.format;
-
 public class LoggerFactory {
 
     private final LoggerConfiguration loggerConfig;

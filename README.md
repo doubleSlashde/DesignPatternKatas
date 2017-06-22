@@ -69,8 +69,8 @@ Die in der folgenden Tabelle gelisteten Logger-Klassen sollen erstellt werden. U
 Implementierung nicht in eine tatsächliche Datei oder Datenbank loggen. Stattdessen wird jeweils die Nachricht
 inklusive eines entsprechenden Suffix nach `System.out` geschrieben.
 
-| Logger-Klasse | Funktion                | Bemerkung |
-|---------------|-------------------------|-----------|
-| FileLogger    | Loggt in eine Datei     | Schreibt `nachricht + " (in eine Datei geloggt)"` nach `System.out`. |
-| DbLogger      | Loggt in eine Datenbank | Schreibt `nachricht + " (in eine DB geloggt)"` nach `System.out`. |
-| SilentLogger  | Macht gar nichts        | Ignoriert die Nachricht und schreibt nichts nach `System.out`. |
+| Logger-Klasse | Konfiguration | Funktion                | Bemerkung |
+|---------------|---------------|-------------------------|-----------|
+| FileLogger    | file          | Loggt in eine Datei     | Schreibt `nachricht + " (in eine Datei geloggt)"` nach `System.out`. |
+| DbLogger      | db            | Loggt in eine Datenbank | Schreibt `nachricht + " (in eine DB geloggt)"` nach `System.out`. |
+| SilentLogger  | silent        | Macht gar nichts        | Ignoriert die Nachricht und schreibt nichts nach `System.out`. |
