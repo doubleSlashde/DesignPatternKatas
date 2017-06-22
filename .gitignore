@@ -58,6 +58,7 @@ fabric.properties
 *.iml
 modules.xml
 .idea/misc.xml
+.idea/sonarlint/
 *.ipr
 
 ### Java ###
