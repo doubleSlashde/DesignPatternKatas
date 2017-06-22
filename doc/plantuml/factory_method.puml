@@ -1,0 +1,31 @@
+@startuml
+
+interface Logger {
+{abstract} void log(String mesage)
+}
+
+class FileLogger {
+void log(String mesage)
+}
+
+class DbLogger {
+void log(String mesage)
+}
+
+class SilentLogger {
+void log(String mesage)
+}
+
+class LoggerFactory {
+Logger getLogger()
+}
+
+Logger <|-- FileLogger
+Logger <|-- DbLogger
+Logger <|-- SilentLogger
+
+LoggerFactory .up.> SilentLogger: <<creates>>
+LoggerFactory .up.> DbLogger: <<creates>>
+LoggerFactory .up.> FileLogger: <<creates>>
+
+@enduml
