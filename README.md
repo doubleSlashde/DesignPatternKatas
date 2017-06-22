@@ -2,6 +2,12 @@
 
 ## Worum handelt es sich hier? ##
 
+### Code Katas ###
+
+Unter einem **Code Kata** versteht man eine kleine, abgeschlossene Übung, mit der Softwareentwickler ihre Fertigkeiten 
+trainieren können. Der Begriff stammt aus der [asiatischen Kampfkunst](https://de.wikipedia.org/wiki/Form_(Kampfkunst)). 
+Ausführliche Informationen zu Code Katas finden sich [hier](http://codekata.com/). 
+
 ### Design Patterns ###
 
 Bei [**Design Patterns**](https://de.wikipedia.org/wiki/Entwurfsmuster) (deutsch _Entwurfsmuster_) handelt es sich laut 
@@ -14,12 +20,6 @@ erschienen im O'Reilly-Verlag.
 * Eine abstraktere Behandlung findet sich im Klassiker der "Gang of Four",
 durch den Design Patterns bekannt geworden sind: _"Entwurfsmuster: Elemente wiederverwendbarer objektorientierter 
 Software"_ von Erich Gamma, Richard Helm, Ralph Johnson, John Vlissides (erschienen im Addison-Wesley-Verlag).
-
-### Code Katas ###
-
-Unter einem **Code Kata** versteht man eine kleine, abgeschlossene Übung, mit der Softwareentwickler ihre Fertigkeiten 
-trainieren können. Der Begriff stammt aus der [asiatischen Kampfkunst](https://de.wikipedia.org/wiki/Form_(Kampfkunst)). 
-Ausführliche Informationen zu Code Katas finden sich [hier](http://codekata.com/). 
 
 ### Katas für Design Patterns ###
 
@@ -65,8 +65,12 @@ Logger-Klasse instanziert und zurückgeliefert werden.
 
 ![alt](doc/images/factory_method.png) 
 
+Die in der folgenden Tabelle gelisteten Logger-Klassen sollen erstellt werden. Um es einfach zu halten, soll deren
+Implementierung nicht in eine tatsächliche Datei oder Datenbank loggen. Stattdessen wird jeweils die Nachricht
+inklusive eines entsprechenden Suffix nach `System.out` geschrieben.
+
 | Logger-Klasse | Funktion                | Bemerkung |
 |---------------|-------------------------|-----------|
-| FileLogger    | Loggt in eine Datei     | |
-| DbLogger      | Loggt in eine Datenbank | |
-| SilentLogger  | Macht gar nichts        | |
+| FileLogger    | Loggt in eine Datei     | Schreibt `nachricht + " (in eine Datei geloggt)"` nach `System.out`. |
+| DbLogger      | Loggt in eine Datenbank | Schreibt `nachricht + " (in eine DB geloggt)"` nach `System.out`. |
+| SilentLogger  | Macht gar nichts        | Ignoriert die Nachricht und schreibt nichts nach `System.out`. |
