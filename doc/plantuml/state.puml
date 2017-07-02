@@ -13,14 +13,13 @@ Washing --> Off : turnOff()
 @startuml
 
 abstract class State {
-    #stateName
+    #stateName : String
     {abstract} turnOn() : State
     {abstract} turnOff() : State
     {abstract} wash() : State
     {abstract} openDoor() : State
     {abstract} closeDoor() : State
     getStateName() : String
-    toString() : String
 }
 
 @enduml
