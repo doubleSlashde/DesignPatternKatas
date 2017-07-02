@@ -1,28 +1,28 @@
 @startuml
 
 interface Logger {
-{abstract} void log(String mesage)
+{abstract} log(message : String) : void
 }
 
 class FileLogger {
-void log(String mesage)
+log(message : String) : void
 }
 
 class DbLogger {
-void log(String mesage)
+log(message : String) : void
 }
 
 class SilentLogger {
-void log(String mesage)
+log(message : String) : void
 }
 
 class LoggerFactory {
-Logger getLogger()
+getLogger() : Logger
 }
 
-Logger <|-- FileLogger
-Logger <|-- DbLogger
-Logger <|-- SilentLogger
+Logger <|-- FileLogger : <<implem.>>
+Logger <|-- DbLogger : <<implem.>>
+Logger <|-- SilentLogger : <<implem.>>
 
 LoggerFactory .up.> SilentLogger: <<creates>>
 LoggerFactory .up.> DbLogger: <<creates>>

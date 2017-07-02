@@ -1,0 +1,23 @@
+@startuml
+
+[*] --> Off
+Off --> On : turnOn()
+On --> Off : turnOff()
+On --> Washing  : wash()
+Washing --> Paused : openDoor()
+Paused --> Washing : closeDoor()
+Washing --> Off : turnOff()
+
+@enduml
+
+@startuml
+
+abstract class State {
+    {abstract} turnOn() : State
+    {abstract} turnOff() : State
+    {abstract} wash() : State
+    {abstract} openDoor() : State
+    {abstract} closeDoor() : State
+}
+
+@enduml
