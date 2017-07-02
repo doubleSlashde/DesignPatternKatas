@@ -28,8 +28,4 @@ public abstract class State {
         return stateName;
     }
 
-    public String toString() {
-        return getStateName();
-    }
-
 }
