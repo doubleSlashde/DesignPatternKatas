@@ -12,6 +12,10 @@ import java.nio.charset.StandardCharsets;
 import static org.hamcrest.CoreMatchers.*;
 import static org.junit.Assert.assertThat;
 
+/**
+ * TODO: Das Factory Method Pattern ausimplementieren, so dass alle Tests erfolgreich durchlaufen.
+ * An dieser Testklasse sollen keine Änderungen durchgeführt werden!
+ */
 public class LoggerFactoryTest {
 
     private static final String LOG_MESSAGE = "Das ist eine Test-Lognachricht";
