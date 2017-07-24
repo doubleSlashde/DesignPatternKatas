@@ -1,25 +1,67 @@
 @startuml
 
-[*] --> Off
-Off --> On : turnOn()
+[*] -down-> Off
+Off -right-> On : turnOn()
 On --> Off : turnOff()
+Washing --> On : finished()
 On --> Washing  : wash()
 Washing --> Paused : openDoor()
 Paused --> Washing : closeDoor()
 Washing --> Off : turnOff()
+Off -left-> [*]
 
 @enduml
 
 @startuml
 
-abstract class State {
-    #stateName : String
-    {abstract} turnOn() : State
-    {abstract} turnOff() : State
-    {abstract} wash() : State
-    {abstract} openDoor() : State
-    {abstract} closeDoor() : State
-    getStateName() : String
+class Dishwasher {
+    -dishwasherState : DishwasherState
+    +turnOn() : void
+    +turnOff() : void
+    +wash() : void
+    +finished() : void
+    +openDoor() : void
+    +closeDoor() : void
+    +setState(dishwasherState : DishwasherState) : void
+    +getState() : DishwasherState
 }
+
+abstract class DishwasherState {
+    #dishwasher : Dishwasher
+    +turnOn() : void
+    +turnOff() : void
+    +wash() : void
+    +finished() : void
+    +openDoor() : void
+    +closeDoor() : void
+    {abstract} +getStateName() : String
+}
+
+class OffState {
+    +turnOn() : void
+    +getStateName() : String
+}
+class OnState {
+    +turnOff() : void
+    +wash() : void
+    +getStateName() : String
+}
+class WashingState {
+    +finished() : void
+    +openDoor() : void
+    +turnOff() : void
+    +getStateName() : String
+}
+class PausedState {
+    +closeDoor() : void
+    +getStateName() : String
+}
+
+Dishwasher *-right- DishwasherState
+
+DishwasherState <|-- OffState
+DishwasherState <|-- OnState
+DishwasherState <|-- WashingState
+DishwasherState <|-- PausedState
 
 @enduml
