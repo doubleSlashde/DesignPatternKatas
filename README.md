@@ -92,13 +92,6 @@ sollen implementiert werden:
 
 ![UML: Zustandsautomat Spülmaschine](doc/images/state_transitions.png)
 
-| Zustand | Bedeutung                      |
-|---------|--------------------------------|
-| Off     | Ausgeschaltet                  |
-| On      | Eingeschaltet                  |
-| Washing | Spült                          |
-| Paused  | Pausiert ( Tür wurde geöffnet) |
-
 | Funktion    | Bedeutung                      |
 |-------------|--------------------------------|
 | turnOn()    | einschalten                    |
@@ -108,15 +101,23 @@ sollen implementiert werden:
 | openDoor()  | Tür öffnen                     |
 | closeDoor() | Tür schließen                  |
 
+| Zustand | Bedeutung                      |
+|---------|--------------------------------|
+| Off     | Ausgeschaltet                  |
+| On      | Eingeschaltet                  |
+| Washing | Spült                          |
+| Paused  | Pausiert ( Tür wurde geöffnet) |
+
 Initial befindet sich die Spülmaschine im Zustand "Off". Schaltet man sie mit der Funktion `turnOn()` ein, befindet sie sich
-im Zustand "On". Betätigt man dann die `wash()`-Funktion, wird sie in den Zustand "Washing" versetzt.
+im Zustand "On". Betätigt man dann die `wash()`-Funktion, wird sie in den Zustand "Washing" versetzt, u.s.w.
 
 In diesem Kata werden nur die im Zustandsdiagramm dargestellten Zustandsübergänge realisiert. Ein neuer Zustand wird
 erreicht, wenn eine Funktion ausgeführt wird, die durch einen vom aktuellen Zustand wegführenden Pfeil dargestellt ist.
-Beispiel: ist die Spülmaschine im Zustand "Washing", und die Funktion `openDoor()` wird ausgeführt, ändert sich der
+
+**Beispiel:** ist die Spülmaschine im Zustand "Washing", und die Funktion `openDoor()` wird ausgeführt, ändert sich der
 Zustand auf "Paused".
 
-In allen anderen Fällen soll sich der Zustand der Maschine nicht ändern. Zum Beispiel: wenn die `wash()`-Funktion 
+In allen anderen Fällen soll der Zustand der Maschine sich nicht ändern. Zum Beispiel: wenn die `wash()`-Funktion 
 betätigt wird, während die Maschine sich im Zustand "Off" befindet, weil sie noch nicht eingeschaltet ist,
 bleibt die Maschine im Zustand "Off".
 
@@ -134,8 +135,8 @@ Alle konkreten Zustände erweitern die abstrakte Klasse `DishwasherState`. Sie m
 `getStateName()` überschreiben und den Namen ihres repräsentierten Zustands zurückgeben (z.B. "off", "on", ...).
 
 Alternativ könnte `DishwasherState` als Interface realisiert werden. Hier wurde jedoch die abstakte Klasse gewählt, 
-damit dort das Standardverhalten für nicht definierte Zustandsübergänge implementiert und an die konkreten Zustandsklassen 
-vererbt werden kann.
+damit dort das Standardverhalten für nicht definierte Zustandsübergänge (keine Zustandsänderung) implementiert und an 
+die konkreten Zustandsklassen vererbt werden kann.
 
 In den Zustandsklassen werden nur die im Zustandsdiagramm definierten Zustandsänderungen durch Überschreiben der
 entsprechenden Funktions-Methoden implementiert (z.B. `turnOn()` in der Klasse `OffState`, die den Zutand "Off" 
