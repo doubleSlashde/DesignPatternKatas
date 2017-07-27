@@ -38,10 +38,11 @@ dass alle JUnit-Tests erfolgreich durchlaufen. Die Testklassen selbst sollen dab
 Die Katas werden als Maven-Projekt zur Verfügung gestellt, das mit der "Maven-Projekt importieren"-Funktion 
 (oder ähnlich lautend) in die jeweils bevorzugte IDE importiert werden kann.
 
-| Software    | Version                    |
-|-------------|----------------------------| 
-| Java        | Version 8 (1.8) oder höher |
-| Maven       |3.x                         | 
+| Software    | Version                           |
+|-------------|-----------------------------------| 
+| Java        | Version 8 (1.8) oder höher        |
+| Maven       | 3.x                               |
+| Git         | (von GitHub unterstützte Version) | 
 
 ## Die Katas ##
 
