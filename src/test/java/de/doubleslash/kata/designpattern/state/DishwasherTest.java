@@ -1,10 +1,12 @@
 package de.doubleslash.kata.designpattern.state;
 
+import static org.hamcrest.CoreMatchers.containsString;
+import static org.hamcrest.CoreMatchers.equalTo;
+import static org.hamcrest.CoreMatchers.is;
+import static org.hamcrest.MatcherAssert.assertThat;
+
 import org.junit.Before;
 import org.junit.Test;
-
-import static org.hamcrest.CoreMatchers.*;
-import static org.junit.Assert.assertThat;
 
 /**
  * TODO: Das State Pattern ausimplementieren, so dass alle Tests erfolgreich durchlaufen.
