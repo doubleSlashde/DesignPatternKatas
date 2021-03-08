@@ -51,8 +51,13 @@ Die Katas werden als Maven-Projekt zur Verfügung gestellt, das mit der "Maven-P
 **Typ**: Erzeugungsmuster (_creational pattern_)
 
 Dieses Pattern wird verwendet, wenn eine Klasse den konkreten Typ der von ihr zu erzeugenden Objekte nicht kennen kann 
-oder soll. Die Fabrikmethode liefert Objekte vom Typ eines Interfaces oder einer abstrakten Klasse zurück. Damit wird
+oder soll. Die Fabrikmethode liefert Objekte vom Typ eines Interfaces oder einer abstrakten Klasse zurück. 
+
+Damit wird
 eine lose Kopplung zwischen dem aufrufenden und den erzeugten Objekten erzielt.
+
+Zudem hilft das Pattern bei der Umsetzung des Open/Closed-Prinzips (offen für Erweiterung, geschlossen für Änderung).
+Für die Erweiterung um eine zusätzliche Implementierung muss lediglich eine neue Klasse erstellt, sowie diese der Factory-Methode bekannt gemacht werden.
 
 ### Factory Method Kata ###
 
