@@ -31,7 +31,8 @@ Damit kann die Implementierung der Design Patterns in Java ganz praktisch geübt
 Ganz einfach: 
 * Für jedes Design Pattern gibt es ein entsprechendes Package mit vorgefertigten Klassengerüsten, sowie einen JUnit-Test.
 * Die TODOs in den Gerüst-Klassen werden durch Implementierung des jeweiligen Design Patterns so erledigt, 
-dass alle JUnit-Tests erfolgreich durchlaufen. Die Testklassen selbst sollen dabei **_nicht_** geändert werden.
+dass alle JUnit-Tests erfolgreich durchlaufen.
+* Die Unit-Tests müssen durch entfernen der `@Disabled`-Annotationen in den Testklassen aktiviert werden. Die Testklassen selbst sollen dabei **_nicht_** geändert werden.
 
 ## Voraussetzungen ##
 
@@ -40,8 +41,8 @@ Die Katas werden als Maven-Projekt zur Verfügung gestellt, das mit der "Maven-P
 
 | Software    | Version                           |
 |-------------|-----------------------------------| 
-| Java        | Version 8 (1.8) oder höher        |
-| Maven       | 3.x                               |
+| Java        | Version 21 (oder höher)           |
+| Maven       | 3.9.x (oder höher)                |
 | Git         | (von GitHub unterstützte Version) | 
 
 ## Die Katas ##

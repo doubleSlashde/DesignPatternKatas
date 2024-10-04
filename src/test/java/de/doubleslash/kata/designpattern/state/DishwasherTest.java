@@ -1,17 +1,21 @@
 package de.doubleslash.kata.designpattern.state;
 
-import static org.hamcrest.CoreMatchers.containsString;
-import static org.hamcrest.CoreMatchers.equalTo;
-import static org.hamcrest.CoreMatchers.is;
-import static org.hamcrest.MatcherAssert.assertThat;
+import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.Disabled;
+import org.junit.jupiter.api.Test;
 
-import org.junit.Before;
-import org.junit.Test;
+import static org.assertj.core.api.Assertions.assertThat;
 
 /**
- * TODO: Das State Pattern ausimplementieren, so dass alle Tests erfolgreich durchlaufen.
- * An dieser Testklasse sollen keine Änderungen durchgeführt werden!
+ * TODO:
+ * <ul>
+ *     <li>Die {@link Disabled}-Annotation über der Klassendeklaration entfernen</li>
+ *     <li>Das State Pattern ausimplementieren, so dass alle Tests erfolgreich durchlaufen.</li>
+ * </ul>
+ *
+ * Außer dem Entfernen der Annotation sollen in dieser Klasse keine Änderungen durchgeführt werden!
  */
+@Disabled
 public class DishwasherTest {
 
     private static final String OFF = "off";
@@ -21,18 +25,18 @@ public class DishwasherTest {
 
     private Dishwasher dishwasher;
 
-    @Before
-    public void setUp() throws Exception {
+    @BeforeEach
+    public void setUp() {
         this.dishwasher = new Dishwasher();
     }
 
     @Test
-    public void testStateOfNewDishwasherIsOff() throws Exception {
+    public void testStateOfNewDishwasherIsOff() {
         assertDishwasherIs(OFF);
     }
 
     @Test
-    public void testStateTransitionsFromStateOff() throws Exception {
+    public void testStateTransitionsFromStateOff() {
         assertDishwasherIs(OFF);
 
         // keine Zustandsänderung
@@ -47,7 +51,7 @@ public class DishwasherTest {
     }
 
     @Test
-    public void testStateTransitionsFromStateOn() throws Exception {
+    public void testStateTransitionsFromStateOn() {
         ensureDishwasherIsOn();
 
         // keine Zustandsänderung
@@ -65,7 +69,7 @@ public class DishwasherTest {
     }
 
     @Test
-    public void testStateTransitionsFromStateWashing() throws Exception {
+    public void testStateTransitionsFromStateWashing() {
         ensureDishwasherIsWashing();
 
         // keine Zustandsänderung
@@ -86,7 +90,7 @@ public class DishwasherTest {
     }
 
     @Test
-    public void testStateTransitionsFromStatePaused() throws Exception {
+    public void testStateTransitionsFromStatePaused() {
         ensureDishwasherIsPaused();
 
         // keine Zustandsänderung
@@ -135,8 +139,8 @@ public class DishwasherTest {
 
     private void assertDishwasherIs(String expectedStateName) {
         DishwasherState state = dishwasher.getState();
-        assertThat(state.getStateName(), is(equalTo(expectedStateName)));
-        assertThat(state.getClass().getSimpleName().toLowerCase(), containsString(expectedStateName));
+        assertThat(state.getStateName()).isEqualTo(expectedStateName);
+        assertThat(state.getClass().getSimpleName().toLowerCase()).contains(expectedStateName);
     }
 
 }

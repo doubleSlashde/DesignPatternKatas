@@ -1,32 +1,38 @@
 package de.doubleslash.kata.designpattern.factory;
 
 import org.apache.commons.io.output.TeeOutputStream;
-import org.junit.After;
-import org.junit.Before;
-import org.junit.Test;
+import org.junit.jupiter.api.AfterEach;
+import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.Disabled;
+import org.junit.jupiter.api.Test;
 
 import java.io.ByteArrayOutputStream;
 import java.io.PrintStream;
 import java.nio.charset.StandardCharsets;
 
-import static org.hamcrest.CoreMatchers.*;
-import static org.junit.Assert.assertThat;
+import static org.assertj.core.api.Assertions.assertThat;
+
 
 /**
- * TODO: Das Factory Method Pattern ausimplementieren, so dass alle Tests erfolgreich durchlaufen.
- * An dieser Testklasse sollen keine Änderungen durchgeführt werden!
+ * TODO:
+ * <ul>
+ *     <li>Die {@link Disabled}-Annotation über der Klassendeklaration entfernen</li>
+ *     <li>Das Factory Method Pattern ausimplementieren, so dass alle Tests erfolgreich durchlaufen.</li>
+ * </ul>
+ *
+ * Außer dem Entfernen der Annotation sollen in dieser Klasse keine Änderungen durchgeführt werden!
  */
+@Disabled
 public class LoggerFactoryTest {
 
     private static final String LOG_MESSAGE = "Das ist eine Test-Lognachricht";
-    private static final String EMPTY_STRING = "";
 
     private ByteArrayOutputStream baos;
 
     private PrintStream originalSystemOut;
 
-    @Before
-    public void setUp() throws Exception {
+    @BeforeEach
+    public void setUp() {
         // Ausgaben nach System.out in einen ByteArrayOutputStream kopieren, damit die Ausgaben später ausgewertet
         // werden können
         baos = new ByteArrayOutputStream();
@@ -34,8 +40,8 @@ public class LoggerFactoryTest {
         System.setOut(new PrintStream(new TeeOutputStream(originalSystemOut, baos)));
     }
 
-    @After
-    public void tearDown() throws Exception {
+    @AfterEach
+    public void tearDown() {
         System.setOut(originalSystemOut);
     }
 
@@ -44,7 +50,7 @@ public class LoggerFactoryTest {
      * Logger-Interface implementiert.
      */
     @Test
-    public void testWhenCreatingFileLoggerItIsNotNull() throws Exception {
+    public void testWhenCreatingFileLoggerItIsNotNull() {
 
         // Vorbereiten
         LoggerFactory factory = new LoggerFactory(new LoggerConfiguration("file"));
@@ -53,7 +59,7 @@ public class LoggerFactoryTest {
         Logger logger = factory.getLogger();
 
         // Auswerten
-        assertThat(logger, is(notNullValue()));
+        assertThat(logger).isNotNull();
     }
 
     /**
@@ -61,7 +67,7 @@ public class LoggerFactoryTest {
      * implementiert und den Klassennamen FileLogger hat.
      */
     @Test
-    public void testWhenCreatingFileLoggerItsClassNameIsFileLogger() throws Exception {
+    public void testWhenCreatingFileLoggerItsClassNameIsFileLogger() {
 
         // Vorbereiten
         LoggerFactory factory = new LoggerFactory(new LoggerConfiguration("file"));
@@ -70,7 +76,7 @@ public class LoggerFactoryTest {
         Logger logger = factory.getLogger();
 
         // Auswerten
-        assertThat(classNameOf(logger), is(equalTo("FileLogger")));
+        assertThat(classNameOf(logger)).isEqualTo("FileLogger");
     }
 
     /**
@@ -79,7 +85,7 @@ public class LoggerFactoryTest {
      * nach System.out schreibt.
      */
     @Test
-    public void testWhenLoggingToFileLoggerTheCorrectMessageIsLogged() throws Exception {
+    public void testWhenLoggingToFileLoggerTheCorrectMessageIsLogged() {
 
         // Vorbereiten
         LoggerFactory factory = new LoggerFactory(new LoggerConfiguration("file"));
@@ -99,7 +105,7 @@ public class LoggerFactoryTest {
      * Logger-Interface implementiert.
      */
     @Test
-    public void testWhenCreatingDbLoggerItIsNotNull() throws Exception {
+    public void testWhenCreatingDbLoggerItIsNotNull() {
 
         // Vorbereiten
         LoggerFactory factory = new LoggerFactory(new LoggerConfiguration("db"));
@@ -108,7 +114,7 @@ public class LoggerFactoryTest {
         Logger logger = factory.getLogger();
 
         // Auswerten
-        assertThat(logger, is(notNullValue()));
+        assertThat(logger).isNotNull();
     }
 
     /**
@@ -116,7 +122,7 @@ public class LoggerFactoryTest {
      * implementiert und den Klassennamen DbLogger hat.
      */
     @Test
-    public void testWhenCreatingDbLoggerItsClassNameIsDbLogger() throws Exception {
+    public void testWhenCreatingDbLoggerItsClassNameIsDbLogger() {
 
         // Vorbereiten
         LoggerFactory factory = new LoggerFactory(new LoggerConfiguration("db"));
@@ -125,7 +131,7 @@ public class LoggerFactoryTest {
         Logger logger = factory.getLogger();
 
         // Auswerten
-        assertThat(classNameOf(logger), is(equalTo("DbLogger")));
+        assertThat(classNameOf(logger)).isEqualTo("DbLogger");
     }
 
     /**
@@ -134,7 +140,7 @@ public class LoggerFactoryTest {
      * nach System.out schreibt.
      */
     @Test
-    public void testWhenLoggingToDbLoggerTheCorrectMessageIsLogged() throws Exception {
+    public void testWhenLoggingToDbLoggerTheCorrectMessageIsLogged() {
 
         // Vorbereiten
         LoggerFactory factory = new LoggerFactory(new LoggerConfiguration("db"));
@@ -154,7 +160,7 @@ public class LoggerFactoryTest {
      * Logger-Interface implementiert.
      */
     @Test
-    public void testWhenCreatingSilentLoggerItIsNotNull() throws Exception {
+    public void testWhenCreatingSilentLoggerItIsNotNull() {
 
         // Vorbereiten
         LoggerFactory factory = new LoggerFactory(new LoggerConfiguration("silent"));
@@ -163,7 +169,7 @@ public class LoggerFactoryTest {
         Logger logger = factory.getLogger();
 
         // Auswerten
-        assertThat(logger, is(notNullValue()));
+        assertThat(logger).isNotNull();
     }
 
     /**
@@ -171,7 +177,7 @@ public class LoggerFactoryTest {
      * implementiert und den Klassennamen SilentLogger hat.
      */
     @Test
-    public void testWhenCreatingSilentLoggerItsClassNameIsSilentLogger() throws Exception {
+    public void testWhenCreatingSilentLoggerItsClassNameIsSilentLogger() {
 
         // Vorbereiten
         LoggerFactory factory = new LoggerFactory(new LoggerConfiguration("silent"));
@@ -180,7 +186,7 @@ public class LoggerFactoryTest {
         Logger logger = factory.getLogger();
 
         // Auswerten
-        assertThat(classNameOf(logger), is(equalTo("SilentLogger")));
+        assertThat(classNameOf(logger)).isEqualTo("SilentLogger");
     }
 
     /**
@@ -188,7 +194,7 @@ public class LoggerFactoryTest {
      * implementiert, und dessen log(message)-Methode nichts loggt (d.h. nichts nach System.out schreibt).
      */
     @Test
-    public void testWhenLoggingToSilentLoggerNothingIsLogged() throws Exception {
+    public void testWhenLoggingToSilentLoggerNothingIsLogged() {
 
         // Vorbereiten
         LoggerFactory factory = new LoggerFactory(new LoggerConfiguration("silent"));
@@ -201,18 +207,18 @@ public class LoggerFactoryTest {
         assertThatNothingWasLogged();
     }
 
-    private void assertThatMessageWasLogged(String expectedLogMessage) throws Exception {
+    private void assertThatMessageWasLogged(String expectedLogMessage) {
         expectedLogMessage = expectedLogMessage.trim();
         String loggedMessage = loggedMessage().trim();
-        assertThat(loggedMessage, is(equalTo(expectedLogMessage)));
+        assertThat(loggedMessage).isEqualTo(expectedLogMessage);
     }
 
-    private void assertThatNothingWasLogged() throws Exception {
-        assertThat(loggedMessage(), is(equalTo(EMPTY_STRING)));
+    private void assertThatNothingWasLogged() {
+        assertThat(loggedMessage()).isEmpty();
     }
 
-    private String loggedMessage() throws Exception {
-        return baos.toString(StandardCharsets.UTF_8.name());
+    private String loggedMessage() {
+        return baos.toString(StandardCharsets.UTF_8);
     }
 
     private String classNameOf(Logger logger) {
