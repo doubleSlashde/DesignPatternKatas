@@ -23,7 +23,7 @@ import static org.assertj.core.api.Assertions.assertThat;
  * Außer dem Entfernen der Annotation sollen in dieser Klasse keine Änderungen durchgeführt werden!
  */
 @Disabled
-public class LoggerFactoryTest {
+class LoggerFactoryTest {
 
     private static final String LOG_MESSAGE = "Das ist eine Test-Lognachricht";
 
@@ -50,7 +50,7 @@ public class LoggerFactoryTest {
      * Logger-Interface implementiert.
      */
     @Test
-    public void testWhenCreatingFileLoggerItIsNotNull() {
+    void testWhenCreatingFileLoggerItIsNotNull() {
 
         // Vorbereiten
         LoggerFactory factory = new LoggerFactory(new LoggerConfiguration("file"));
@@ -67,7 +67,7 @@ public class LoggerFactoryTest {
      * implementiert und den Klassennamen FileLogger hat.
      */
     @Test
-    public void testWhenCreatingFileLoggerItsClassNameIsFileLogger() {
+    void testWhenCreatingFileLoggerItsClassNameIsFileLogger() {
 
         // Vorbereiten
         LoggerFactory factory = new LoggerFactory(new LoggerConfiguration("file"));
@@ -85,7 +85,7 @@ public class LoggerFactoryTest {
      * nach System.out schreibt.
      */
     @Test
-    public void testWhenLoggingToFileLoggerTheCorrectMessageIsLogged() {
+    void testWhenLoggingToFileLoggerTheCorrectMessageIsLogged() {
 
         // Vorbereiten
         LoggerFactory factory = new LoggerFactory(new LoggerConfiguration("file"));
@@ -105,7 +105,7 @@ public class LoggerFactoryTest {
      * Logger-Interface implementiert.
      */
     @Test
-    public void testWhenCreatingDbLoggerItIsNotNull() {
+    void testWhenCreatingDbLoggerItIsNotNull() {
 
         // Vorbereiten
         LoggerFactory factory = new LoggerFactory(new LoggerConfiguration("db"));
@@ -122,7 +122,7 @@ public class LoggerFactoryTest {
      * implementiert und den Klassennamen DbLogger hat.
      */
     @Test
-    public void testWhenCreatingDbLoggerItsClassNameIsDbLogger() {
+    void testWhenCreatingDbLoggerItsClassNameIsDbLogger() {
 
         // Vorbereiten
         LoggerFactory factory = new LoggerFactory(new LoggerConfiguration("db"));
@@ -140,7 +140,7 @@ public class LoggerFactoryTest {
      * nach System.out schreibt.
      */
     @Test
-    public void testWhenLoggingToDbLoggerTheCorrectMessageIsLogged() {
+    void testWhenLoggingToDbLoggerTheCorrectMessageIsLogged() {
 
         // Vorbereiten
         LoggerFactory factory = new LoggerFactory(new LoggerConfiguration("db"));
@@ -160,7 +160,7 @@ public class LoggerFactoryTest {
      * Logger-Interface implementiert.
      */
     @Test
-    public void testWhenCreatingSilentLoggerItIsNotNull() {
+    void testWhenCreatingSilentLoggerItIsNotNull() {
 
         // Vorbereiten
         LoggerFactory factory = new LoggerFactory(new LoggerConfiguration("silent"));
@@ -177,7 +177,7 @@ public class LoggerFactoryTest {
      * implementiert und den Klassennamen SilentLogger hat.
      */
     @Test
-    public void testWhenCreatingSilentLoggerItsClassNameIsSilentLogger() {
+    void testWhenCreatingSilentLoggerItsClassNameIsSilentLogger() {
 
         // Vorbereiten
         LoggerFactory factory = new LoggerFactory(new LoggerConfiguration("silent"));
@@ -194,7 +194,7 @@ public class LoggerFactoryTest {
      * implementiert, und dessen log(message)-Methode nichts loggt (d.h. nichts nach System.out schreibt).
      */
     @Test
-    public void testWhenLoggingToSilentLoggerNothingIsLogged() {
+    void testWhenLoggingToSilentLoggerNothingIsLogged() {
 
         // Vorbereiten
         LoggerFactory factory = new LoggerFactory(new LoggerConfiguration("silent"));

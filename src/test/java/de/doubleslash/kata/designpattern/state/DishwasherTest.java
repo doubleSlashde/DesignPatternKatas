@@ -16,7 +16,7 @@ import static org.assertj.core.api.Assertions.assertThat;
  * Außer dem Entfernen der Annotation sollen in dieser Klasse keine Änderungen durchgeführt werden!
  */
 @Disabled
-public class DishwasherTest {
+class DishwasherTest {
 
     private static final String OFF = "off";
     private static final String ON = "on";
@@ -31,12 +31,12 @@ public class DishwasherTest {
     }
 
     @Test
-    public void testStateOfNewDishwasherIsOff() {
+    void testStateOfNewDishwasherIsOff() {
         assertDishwasherIs(OFF);
     }
 
     @Test
-    public void testStateTransitionsFromStateOff() {
+    void testStateTransitionsFromStateOff() {
         assertDishwasherIs(OFF);
 
         // keine Zustandsänderung
@@ -51,7 +51,7 @@ public class DishwasherTest {
     }
 
     @Test
-    public void testStateTransitionsFromStateOn() {
+    void testStateTransitionsFromStateOn() {
         ensureDishwasherIsOn();
 
         // keine Zustandsänderung
@@ -69,7 +69,7 @@ public class DishwasherTest {
     }
 
     @Test
-    public void testStateTransitionsFromStateWashing() {
+    void testStateTransitionsFromStateWashing() {
         ensureDishwasherIsWashing();
 
         // keine Zustandsänderung
@@ -90,7 +90,7 @@ public class DishwasherTest {
     }
 
     @Test
-    public void testStateTransitionsFromStatePaused() {
+    void testStateTransitionsFromStatePaused() {
         ensureDishwasherIsPaused();
 
         // keine Zustandsänderung
